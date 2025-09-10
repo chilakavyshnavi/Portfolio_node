@@ -36,9 +36,9 @@ app.post('/send', (req, res) => {
 
 
   const mailOptions = {
-    from: '"Vyshnavi Contact" <chilakavyshnavi04@gmail.com>',     
-    to: email,                               // user's email from form
-    subject: 'Contact Form Submission',
+     from: `"${name}" <${email}>`,   // shows user as the sender
+    to: 'chilakavyshnavi04@gmail.com',  // your email (you receive it)
+    subject: 'Message',
     text: `
       Name: ${name}
       Company: ${company}
@@ -54,7 +54,7 @@ app.post('/send', (req, res) => {
       return res.render('contact', { msg: 'Error occurred, please try again!' });
     }
     console.log('Message sent: %s', info.response);
-    res.render('contact', { msg: 'Email has been sent to your Gmail!' });
+    res.render('contact', { msg: 'Email has been sent to her Gmail!' });
   });
 });
   
@@ -63,4 +63,5 @@ app.post('/send', (req, res) => {
 
  
 
-app.listen(3000, () => console.log('Server started...'));
+
+app.listen(3001, () => console.log('Server started...'));
